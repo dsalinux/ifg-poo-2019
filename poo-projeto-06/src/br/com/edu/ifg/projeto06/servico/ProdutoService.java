@@ -12,6 +12,40 @@ public class ProdutoService {
 
     public ProdutoService() {
         listaDeProdutos = new ArrayList<>();
+        //Criando produto 1
+        Produto p1 = new Produto();
+        p1.setCodigo(1);
+        p1.setNome("Arroz Parabolizado");
+        p1.setPreco(11.9f);
+        p1.setQuantidade(60);
+        p1.setFabricante(new Fabricante(12345678, "Tio João"));
+        //Criando produto 2
+        Produto p2 = new Produto();
+        p2.setCodigo(2);
+        p2.setNome("Feijão Carioca");
+        p2.setPreco(3.9f);
+        p2.setQuantidade(35);
+        p2.setFabricante(new Fabricante(12345678, "Tio João"));
+        //Criando produto 3
+        Produto p3 = new Produto();
+        p3.setCodigo(3);
+        p3.setNome("Óleo de Soja");
+        p3.setPreco(2.9f);
+        p3.setQuantidade(28);
+        p3.setFabricante(new Fabricante(87654321, "ABC"));
+        //Criando produto 4
+        Produto p4 = new Produto();
+        p4.setCodigo(4);
+        p4.setNome("Margarina");
+        p4.setPreco(4.9f);
+        p4.setQuantidade(20);
+        p4.setFabricante(new Fabricante(12435687, "Qualy"));
+        
+        //Adicionando produtos a lista
+        listaDeProdutos.add(p1);
+        listaDeProdutos.add(p2);
+        listaDeProdutos.add(p3);
+        listaDeProdutos.add(p4);
     }
     
     public void adicionar(){
@@ -51,8 +85,11 @@ public class ProdutoService {
     public void remover(){
         Scanner scanner = new Scanner(System.in);
         Produto produto = new Produto();
+        System.out.println("Deletando produtdo.....");
+        System.out.print("Informe o código do produto: ");
         produto.setCodigo(scanner.nextInt());
         listaDeProdutos.remove(produto);
+        System.out.println("Produto removido com sucesso!\n\n");
     }
     
     public void verDetalhes(int codigo){
@@ -69,8 +106,9 @@ public class ProdutoService {
             System.out.println("Preço: "+itemDaLista.getPreco());
             System.out.println("Quantidade: "+itemDaLista.getQuantidade());
          
-            System.out.println("---------------------\n");
+            System.out.println("---------------------");
         }
+        System.out.println("\n\n");
     }
     
 }

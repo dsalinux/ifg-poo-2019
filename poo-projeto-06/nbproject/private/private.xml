@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/danilo/NetBeansProjects/poo-projeto-06/src/br/com/edu/ifg/projeto06/Main.java</file>
+            <file>file:/home/danilo/Aula201901/POO/ifg-poo-2019/poo-projeto-06/src/br/com/edu/ifg/projeto06/vo/Fabricante.java</file>
+            <file>file:/home/danilo/Aula201901/POO/ifg-poo-2019/poo-projeto-06/src/br/com/edu/ifg/projeto06/Main.java</file>
+            <file>file:/home/danilo/Aula201901/POO/ifg-poo-2019/poo-projeto-06/src/br/com/edu/ifg/projeto06/vo/Produto.java</file>
+            <file>file:/home/danilo/Aula201901/POO/ifg-poo-2019/poo-projeto-06/src/br/com/edu/ifg/projeto06/servico/ProdutoService.java</file>
         </group>
     </open-files>
 </project-private>

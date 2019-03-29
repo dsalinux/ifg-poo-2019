@@ -9,6 +9,15 @@ public class Fabricante {
     private int cnpj;
     private String nome;
 
+    //Construtor padrão
+    public Fabricante() {
+    }
+
+    public Fabricante(int cnpj, String nome) {
+        this.cnpj = cnpj;
+        this.nome = nome;
+    }
+    
     public int getCnpj() {
         return cnpj;
     }
