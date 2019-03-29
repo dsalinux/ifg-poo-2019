@@ -4,7 +4,7 @@ package br.com.edu.ifg.projeto06.vo;
  *
  * @author danilo
  */
-class Fabricante {
+public class Fabricante {
 
     private int cnpj;
     private String nome;

@@ -1,7 +1,5 @@
 package br.com.edu.ifg.projeto06.vo;
 
-import java.util.Objects;
-
 public class Produto {
 
     private int codigo;

@@ -28,13 +28,13 @@ public class Main {
             System.out.println("\n\n");
             switch (opcao) {
                 case 1:
-                    
+                    service.adicionar();
                     break;
                 case 2:
-                    
+                    service.remover();
                     break;
                 case 3:
-                    
+                    service.listar();
                     break;
                 case 4:
                     break whilePrograma;
