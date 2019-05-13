@@ -7,7 +7,6 @@ package br.edu.ifg.pooprojeto12.forms;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.ListModel;
 
 /**
  *
@@ -15,7 +14,8 @@ import javax.swing.ListModel;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private int qtd = 15, index = 0;
+    private int qtd = 100, index = 0;
+//    private List<String> nomesList = new ArrayList();
     private String[] nomes = new String[qtd];
     
     /**
@@ -98,6 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
             String nome = txtNome.getText();
             nomes[index++] = nome;
+//            nomesList.add(nome);
             txtNome.setText("");
             atualizarLista();
             txtNome.requestFocus();
@@ -108,6 +109,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public void atualizarLista(){
         DefaultListModel<String> modelNomes = new DefaultListModel<>();
+//        for (String nome : nomesList) {
         for (String nome : nomes) {
             modelNomes.addElement(nome);
         }
