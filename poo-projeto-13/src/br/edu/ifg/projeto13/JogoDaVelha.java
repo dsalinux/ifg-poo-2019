@@ -51,6 +51,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
             botao.setText("");
             botao.setActionCommand(""+i++);
         }
+        lblJogadorAtual.setText(jogador?txtNomeJogador2.getText():txtNomeJogador1.getText());
     }
     
     private void marcar(int posicao){
@@ -66,6 +67,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
         verificaGanhador();
         
         jogador = !jogador;
+        lblJogadorAtual.setText(jogador?txtNomeJogador2.getText():txtNomeJogador1.getText());
     }
     
     public void verificaGanhador(){
@@ -81,7 +83,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
                         "".equals(botoes[v3].getText())){
                     break;
                 }
-                String ganhador = jogador?"X":"O";
+                String ganhador = jogador?txtNomeJogador2.getText():txtNomeJogador1.getText();
                 JOptionPane.showMessageDialog(rootPane, 
                         ganhador +
                         " venceu na posição ["+v1+", "+v2+", "+v3+"]");
@@ -122,6 +124,13 @@ public class JogoDaVelha extends javax.swing.JFrame {
         btnL2C1 = new javax.swing.JButton();
         btnL2C2 = new javax.swing.JButton();
         btnRestart = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtNomeJogador1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNomeJogador2 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        lblJogadorAtual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,6 +180,30 @@ public class JogoDaVelha extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("O - Jogador 1");
+
+        txtNomeJogador1.setText("Bolinha");
+        txtNomeJogador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomeJogador1KeyReleased(evt);
+            }
+        });
+
+        jLabel2.setText("X - Jogador 2");
+
+        txtNomeJogador2.setText("Xizinho");
+        txtNomeJogador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomeJogador2KeyReleased(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel3.setText("É a vez de:");
+
+        lblJogadorAtual.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblJogadorAtual.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,7 +212,18 @@ public class JogoDaVelha extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnRestart, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRestart, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(txtNomeJogador1)
+                    .addComponent(txtNomeJogador2)
+                    .addComponent(jSeparator1)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblJogadorAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -187,10 +231,24 @@ public class JogoDaVelha extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNomeJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNomeJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblJogadorAtual)
+                        .addGap(0, 275, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -200,6 +258,14 @@ public class JogoDaVelha extends javax.swing.JFrame {
     private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
         limparBotoes();
     }//GEN-LAST:event_btnRestartActionPerformed
+
+    private void txtNomeJogador1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeJogador1KeyReleased
+        lblJogadorAtual.setText(jogador?txtNomeJogador2.getText():txtNomeJogador1.getText());
+    }//GEN-LAST:event_txtNomeJogador1KeyReleased
+
+    private void txtNomeJogador2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeJogador2KeyReleased
+        lblJogadorAtual.setText(jogador?txtNomeJogador2.getText():txtNomeJogador1.getText());
+    }//GEN-LAST:event_txtNomeJogador2KeyReleased
 
     /**
      * @param args the command line arguments
@@ -247,6 +313,13 @@ public class JogoDaVelha extends javax.swing.JFrame {
     private javax.swing.JButton btnL2C1;
     private javax.swing.JButton btnL2C2;
     private javax.swing.JButton btnRestart;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblJogadorAtual;
+    private javax.swing.JTextField txtNomeJogador1;
+    private javax.swing.JTextField txtNomeJogador2;
     // End of variables declaration//GEN-END:variables
 }
